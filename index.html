@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css" integrity="sha384-9+PGKSqjRdkeAU7Eu4nkJU8RFaH8ace8HGXnkiKMP9I9Te0GJ4/km3L1Z8tXigpG" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allura">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <title>CookBook</title>
+    
+  </head>
+  <body>
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="front.php" style="color:#ecceae; text-transform:capitalize; font-family:allura;">CookBook</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarColor03">
+          <ul class="navbar-nav me-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Home
+              </a>
+            </li>
+            <?php
+             if(isset($_SESSION['user_data']))
+             {
+                echo "<li class='nav-item'>
+                <a class='nav-link' href=''></a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href=''></a>
+              </li>
+              <li class='nav-item'>
+                <a class='nav-link' href=''></a>
+              </li>";
+             }
+            ?>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+          <?php
+            if(isset($_SESSION['user_data']))
+            {
+                $x = $_SESSION['user_data'][0];
+                echo "<li class = 'nav-item'><a class='nav-link'></a></li><li class = 'nav-item'><a class='nav-link' href='logout.php'></a></li>";
+            }
+            else
+            {
+                echo "<li class = 'nav-item'><a class = 'nav-link' href='signup.html'>Sign Up</a></li><li class = 'nav-item'><a class = 'nav-link' href='login.php'>Login</a></li>";
+            }
+            echo "<li class='nav-item'>
+                <a class='nav-link' href='subscribe.php'>Subscribe to email</a>
+              </li>";
+            ?>
+        </ul>
+        </div>
+      </div>
+    </nav>
+</nav><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Meal For Your Ingredients</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link rel = "stylesheet" href = "style.css">
+</head>
+<body>
+    <div class = "container">
+        <div class = "meal-wrapper">
+          <div class = "meal-search">
+            <h2 class = "title">Find Meals For Your Ingredients</h2>
+            <blockquote>Real food doesn't have ingredients, real food is ingredients.<br>
+              <cite>- Jamie Oliver</cite>
+            </blockquote>
+    
+            <div class = "meal-search-box">
+              <input type = "text" class = "search-control" placeholder="Enter an ingredient" id = "search-input">
+              <button type = "submit" class = "search-btn btn" id = "search-btn">
+                <i class = "fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+
+
+    
+          <div class = "meal-result">
+            <h2 class = "title">Your Search Results:</h2>
+            <div id= "meal">
+              <!-- meal item -->
+              <!-- <div class = "meal-item">
+                <div class = "meal-img">
+                  <img src = "food.jpg" alt = "food">
+                </div>
+                <div class = "meal-name">
+                  <h3>Potato Chips</h3>
+                  <a href = "#" class = "recipe-btn">Get Recipe</a>
+                </div>
+              </div> -->
+              <!-- end of meal item -->
+            </div>
+        </div>
+  
+  
+        <div class = "meal-details">
+          <!-- recipe close btn -->
+          <button type = "button" class = "btn recipe-close-btn" id = "recipe-close-btn">
+            <i class = "fas fa-times"></i>
+          </button>
+  
+          <!-- meal content -->
+          <div class = "meal-details-content">
+            <!-- <h2 class = "recipe-title">Meals Name Here</h2>
+            <p class = "recipe-category">Category Name</p>
+            <div class = "recipe-instruct">
+              <h3>Instructions:</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo blanditiis quis accusantium natus! Porro, reiciendis maiores molestiae distinctio veniam ratione ex provident ipsa, soluta suscipit quam eos velit autem iste!</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet aliquam voluptatibus ad obcaecati magnam, esse numquam nisi ut adipisci in?</p>
+            </div>
+            <div class = "recipe-meal-img">
+              <img src = "food.jpg" alt = "">
+            </div>
+            <div class = "recipe-link">
+              <a href = "#" target = "_blank">Watch Video</a>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src = "script.js"></script>
+    
+
+<!-- Add this script at the end of the body -->
+<script>
+    function openLoginForm() {
+        document.getElementById("login-form").style.display = "block";
+    }
+
+    function closeLoginForm() {
+        document.getElementById("login-form").style.display = "none";
+    }
+</script>
+
+</body>
